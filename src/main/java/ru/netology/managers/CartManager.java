@@ -3,8 +3,7 @@ package ru.netology.managers;
 import ru.netology.domain.PurchaseItem;
 
 public class CartManager {
-    private int defaultLength = 10; /* Последние 10 добавленных фильмов по умолчанию */
-    //    private int currentLength;      /* Фактическое количество добавленнных фильмов */
+    private int defaultLength = 10;
     private PurchaseItem[] items = new PurchaseItem[0];
 
     public CartManager() {
@@ -26,12 +25,12 @@ public class CartManager {
         items = tmp;
     }
 
-    public PurchaseItem[] getAll(int currentLength) {
+    public PurchaseItem[] getAll() {
         int length;
-        if (currentLength < defaultLength) {
-            length = currentLength;
+        if (items.length < defaultLength) {
+            length = items.length;
         } else {
-            length = defaultLength;
+            length = items.length - (items.length - defaultLength);
         }
         PurchaseItem[] result = new PurchaseItem[length];
         for (int i = 0; i < items.length; i++) {

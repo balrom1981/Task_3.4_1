@@ -30,7 +30,7 @@ class CartManagerLessThanTenTest {
 /* Проверяем, что выводит столько сколько есть, если меньше 10*/
     @Test
     void shouldLessTenMovies() {
-        PurchaseItem[] actual = manager.getAll(6);
+        PurchaseItem[] actual = manager.getAll();
         PurchaseItem[] expected = new PurchaseItem[]{sixth, fifth, fourth, third, second, first};
         assertArrayEquals(actual, expected);
     }

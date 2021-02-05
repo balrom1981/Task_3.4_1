@@ -39,7 +39,7 @@ class CartManagerMoreThanTenTest {
     /* Проверяем что выводит десять последних */
     @Test
     void shouldTenMovies() {
-        PurchaseItem[] actual = manager.getAll(11);
+        PurchaseItem[] actual = manager.getAll();
         PurchaseItem[] expected = new PurchaseItem[]{eleventh, tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second};
         assertArrayEquals(actual, expected);
     }
