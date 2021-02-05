@@ -6,7 +6,7 @@ import ru.netology.domain.PurchaseItem;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class CartManagerTest {
+class CartManagerMoreThanTenTest {
 
     CartManager manager = new CartManager();
     PurchaseItem first = new PurchaseItem(1, 1, "first", "comedy");
@@ -19,6 +19,7 @@ class CartManagerTest {
     PurchaseItem eighth = new PurchaseItem(8, 8, "eighth", "comedy");
     PurchaseItem ninth = new PurchaseItem(9, 9, "ninth", "love story");
     PurchaseItem tenth = new PurchaseItem(10, 10, "tenth", "horror");
+    PurchaseItem eleventh = new PurchaseItem(11, 11, "tenth", "horror");
 
 
     @BeforeEach
@@ -33,13 +34,13 @@ class CartManagerTest {
         manager.add(eighth);
         manager.add(ninth);
         manager.add(tenth);
+        manager.add(eleventh);
     }
-
     /* Проверяем что выводит десять последних */
     @Test
     void shouldTenMovies() {
-        PurchaseItem[] actual = manager.getAll(10);
-        PurchaseItem[] expected = new PurchaseItem[]{tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second, first};
+        PurchaseItem[] actual = manager.getAll(11);
+        PurchaseItem[] expected = new PurchaseItem[]{eleventh, tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second};
         assertArrayEquals(actual, expected);
     }
 

@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class CartManagerLessThanTenTest {
 
 
-    CartManager manager = new CartManager(10, 6);
+    CartManager manager = new CartManager(7);
     PurchaseItem first = new PurchaseItem(1, 1, "first", "comedy");
     PurchaseItem second = new PurchaseItem(2, 2, "second", "thriller");
     PurchaseItem third = new PurchaseItem(3, 3, "third", "drama");
@@ -30,7 +30,7 @@ class CartManagerLessThanTenTest {
 /* Проверяем, что выводит столько сколько есть, если меньше 10*/
     @Test
     void shouldLessTenMovies() {
-        PurchaseItem[] actual = manager.getAll();
+        PurchaseItem[] actual = manager.getAll(6);
         PurchaseItem[] expected = new PurchaseItem[]{sixth, fifth, fourth, third, second, first};
         assertArrayEquals(actual, expected);
     }
