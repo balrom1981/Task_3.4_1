@@ -19,7 +19,8 @@ class CartManagerMoreThanTenTest {
     PurchaseItem eighth = new PurchaseItem(8, 8, "eighth", "comedy");
     PurchaseItem ninth = new PurchaseItem(9, 9, "ninth", "love story");
     PurchaseItem tenth = new PurchaseItem(10, 10, "tenth", "horror");
-    PurchaseItem eleventh = new PurchaseItem(11, 11, "tenth", "horror");
+    PurchaseItem eleventh = new PurchaseItem(11, 11, "eleventh", "horror");
+    PurchaseItem twelfth = new PurchaseItem(12, 12, "twelfth", "horror");
 
 
     @BeforeEach
@@ -35,12 +36,13 @@ class CartManagerMoreThanTenTest {
         manager.add(ninth);
         manager.add(tenth);
         manager.add(eleventh);
+        manager.add(twelfth);
     }
     /* Проверяем что выводит десять последних */
     @Test
     void shouldTenMovies() {
         PurchaseItem[] actual = manager.getAll();
-        PurchaseItem[] expected = new PurchaseItem[]{eleventh, tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second};
+        PurchaseItem[] expected = new PurchaseItem[]{twelfth, eleventh, tenth, ninth, eighth, seventh, sixth, fifth, fourth, third};
         assertArrayEquals(actual, expected);
     }
 

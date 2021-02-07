@@ -25,19 +25,38 @@ public class CartManager {
         items = tmp;
     }
 
-    public PurchaseItem[] getAll() {
-        int length;
-        if (items.length < defaultLength) {
-            length = items.length;
-        } else {
-            length = items.length - (items.length - defaultLength);
-        }
-        PurchaseItem[] result = new PurchaseItem[length];
-        for (int i = 0; i < items.length; i++) {
-            int index = items.length - i - 1;
-            result[i] = items[index];
-        }
-        return result;
-    }
+//    public PurchaseItem[] getAll() {
+//        int length;
+//        if (items.length <= defaultLength) {
+//            length = items.length;
+//        } else {
+//            length = items.length - (items.length - defaultLength);
+//        }
+//        PurchaseItem[] result = new PurchaseItem[length];
+//        for (int i = 0; i < result.length; i++) {
+//            int index = result.length - i - 1;
+//            result[i] = items[index];
+//        }
+//        return result;
+//    }
 
+    public PurchaseItem[] getAll() {
+        if (items.length <= defaultLength) {
+            PurchaseItem[] result = new PurchaseItem[items.length];
+            for (int i = 0; i < items.length; i++) {
+                int index = items.length - i - 1;
+                result[i] = items[index];
+            }
+            return result;
+
+        } else {
+            PurchaseItem[] result = new PurchaseItem[defaultLength];
+            for (int i = 0; i < defaultLength; i++) {
+                int index = items.length - i - 1;
+                result[i] = items[index];
+            }
+
+            return result;
+        }
+    }
 }
